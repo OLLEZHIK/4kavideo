@@ -546,7 +546,8 @@ const steps = [
 
 /* pulz tlačidla synchronizovaný s aktuálne zvýrazneným prvkom */
 function btnPulse(kind){
-  dl.classList.remove('pulse-t','pulse-y','pulse-td','pulse-tc');
+  // zhodíme každú farebnú triedu, nech sa nový odtieň nedá pridať k starému
+  [...dl.classList].filter(c=>c.startsWith('pulse-')).forEach(c=>dl.classList.remove(c));
   if(kind) dl.classList.add('pulse-'+kind);
 }
 
