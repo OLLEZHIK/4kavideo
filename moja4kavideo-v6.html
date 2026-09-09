@@ -155,11 +155,20 @@ body{
 .tag{font-size:7px;background:var(--t-card);color:#d6fbfa;padding:3px 7px;border-radius:999px;font-weight:800}
 
 .sect{font-size:8.5px;color:#9fb0b0;font-weight:800;margin-top:2px}
-.tiles{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.tiles{display:grid;grid-template-columns:1fr;gap:6px}
 .tile{background:var(--app-card);border-radius:10px;padding:8px 4px;text-align:center;
   transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s,background .45s}
 .tile .ic{font-size:13px;line-height:1;margin-bottom:4px;display:block}
 .tile .tx{font-size:6.4px;color:#cfd8d8;font-weight:700;line-height:1.2}
+/* jediná akcia v sekcii — široké tlačidlo cez celú šírku */
+.tile.solo{
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  padding:13px 10px;border-radius:12px;
+  background:linear-gradient(140deg,var(--t-card) 0%,#0a4f52 100%);
+  box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 1px rgba(9,195,190,.35) inset;
+}
+.tile.solo .ic{font-size:15px;margin:0;color:var(--y)}
+.tile.solo .tx{font-size:11px;color:#fff;letter-spacing:-.2px}
 
 .nav{display:flex;justify-content:space-around;padding:7px 0 9px;background:#101010;
   border-top:1px solid #242424}
@@ -176,8 +185,8 @@ body{
 
 /* ---------- POPISKA NAD ZVÝRAZNENÝM PRVKOM ---------- */
 .note{
-  position:absolute;z-index:24;width:190px;
-  padding:9px 11px 10px;border-radius:13px;
+  position:absolute;z-index:24;width:186px;
+  padding:11px 13px 12px;border-radius:13px;
   background:linear-gradient(158deg,rgba(10,48,50,.97) 0%,rgba(4,20,21,.97) 100%);
   border:1px solid rgba(9,195,190,.45);
   box-shadow:0 12px 30px rgba(0,0,0,.55),0 0 0 1px rgba(255,255,255,.05) inset,
@@ -189,17 +198,10 @@ body{
   pointer-events:none;
 }
 .note.on{opacity:1;transform:none}
-.note .nk{
-  display:inline-block;font-size:6.6px;font-weight:800;letter-spacing:1.3px;
-  text-transform:uppercase;color:#04302f;background:var(--y);
-  padding:2px 7px;border-radius:999px;margin-bottom:5px;
-  box-shadow:0 2px 8px rgba(246,209,6,.35);
-}
 .note .nt{
-  display:block;font-size:13.5px;font-weight:800;line-height:1.15;
-  letter-spacing:-.35px;color:#fff;margin-bottom:3px;
+  display:block;font-size:15px;font-weight:800;line-height:1.18;
+  letter-spacing:-.4px;color:#fff;text-wrap:balance;
 }
-.note .nd{display:block;font-size:8.6px;font-weight:700;line-height:1.4;color:#9ed3d2}
 /* špička bubliny mieri na zvýraznený prvok */
 .note::after{
   content:"";position:absolute;left:var(--ax,50%);width:11px;height:11px;
@@ -232,8 +234,8 @@ body{
 
 /* ---------- TRVALÝ CLAIM NAD TLAČIDLOM ---------- */
 .tagline{
-  position:absolute;left:14px;right:14px;bottom:76px;z-index:21;
-  display:flex;align-items:center;justify-content:center;gap:10px;
+  position:absolute;left:12px;right:12px;bottom:78px;z-index:21;
+  display:flex;align-items:center;justify-content:center;gap:9px;
   pointer-events:none;
 }
 .tagline::before{
@@ -243,32 +245,10 @@ body{
     rgba(9,195,190,.38) 0%, rgba(246,209,6,.12) 55%, transparent 74%);
   filter:blur(11px);
 }
-.tagline .ln{
-  position:relative;height:1px;flex:1;max-width:40px;
-  background:linear-gradient(90deg,transparent,rgba(246,209,6,.85));
-}
-.tagline .ln.r{background:linear-gradient(90deg,rgba(9,195,190,.85),transparent)}
-.tagline .ln::after{
-  content:"";position:absolute;top:-1.5px;right:-1px;
-  width:4px;height:4px;border-radius:50%;background:var(--y);
-  box-shadow:0 0 8px rgba(246,209,6,.9);
-}
-.tagline .ln.r::after{right:auto;left:-1px;background:var(--t);
-  box-shadow:0 0 8px rgba(9,195,190,.9)}
 .tagline .tg{
   position:relative;white-space:nowrap;
-  font-size:17px;font-weight:800;letter-spacing:-.3px;
-  background:linear-gradient(96deg,
-    #ffffff 0%, #F6D106 26%, #ffffff 46%, #09C3BE 68%, #ffffff 100%);
-  background-size:230% 100%;
-  -webkit-background-clip:text;background-clip:text;
-  -webkit-text-fill-color:transparent;color:transparent;
-  animation:sheen 6.5s linear infinite;
-  filter:drop-shadow(0 2px 10px rgba(0,0,0,.55));
-}
-@keyframes sheen{from{background-position:0% 0}to{background-position:230% 0}}
-@media (prefers-reduced-motion:reduce){
-  .tagline .tg{animation:none;background-position:34% 0}
+  font-size:21px;font-weight:800;letter-spacing:-.4px;color:#fff;
+  text-shadow:0 2px 12px rgba(0,0,0,.75),0 0 22px rgba(0,0,0,.5);
 }
 
 /* dobíjanie: spodný sheet v appke */
@@ -405,10 +385,7 @@ button.ghost{background:#dfe7e7;color:#123}
 
             <div class="sect">Správa Mojich služieb</div>
             <div class="tiles">
-              <div class="tile" id="t-topup"><span class="ic">＋</span><span class="tx">Dobiť kredit</span></div>
-              <div class="tile"><span class="ic">▤</span><span class="tx">Prehľad čísla</span></div>
-              <div class="tile"><span class="ic">◍</span><span class="tx">Detailná spotreba</span></div>
-              <div class="tile"><span class="ic">▶</span><span class="tx">Predplatné TV</span></div>
+              <div class="tile solo" id="t-topup"><span class="ic">＋</span><span class="tx">Dobiť kredit</span></div>
             </div>
           </div>
 
@@ -441,17 +418,13 @@ button.ghost{background:#dfe7e7;color:#123}
 
     <div class="tap" id="tap"></div>
     <div class="note" id="note">
-      <span class="nk" id="noteKicker"></span>
       <span class="nt" id="noteTitle"></span>
-      <span class="nd" id="noteDesc"></span>
     </div>
 
     <div class="btnzone"></div>
 
     <div class="tagline">
-      <i class="ln"></i>
       <span class="tg">V&#353;etko na jednom mieste</span>
-      <i class="ln r"></i>
     </div>
 
     <a class="dlbtn beat" id="dl" href="https://www.4ka.sk/appka" target="_blank" rel="noopener">
@@ -517,8 +490,8 @@ button.ghost{background:#dfe7e7;color:#123}
     <div class="kv"><b>Formát</b><span>360 × 720 px, bezokrajovo (bez zaoblenia a rámu)</span></div>
     <div class="kv"><b>Dĺžka</b><span>10 sekúnd</span></div>
     <div class="kv"><b>Veľkosť</b><span>cieľ ≤ 4 MB, max. 8 MB (SMS/MMS s videom)</span></div>
-    <div class="kv"><b>Titulky</b><span>popiska nad zvýrazneným prvkom: kicker + nadpis + podtitul</span></div>
-  <div class="kv"><b>Claim</b><span>Všetko na jednom mieste — trvalo nad tlačidlom, vo všetkých scénach</span></div>
+    <div class="kv"><b>Titulky</b><span>jeden veľký nadpis nad zvýrazneným prvkom, bez podtitulu</span></div>
+  <div class="kv"><b>Claim</b><span>Všetko na jednom mieste — statický, biely, trvalo nad tlačidlom</span></div>
   <div class="kv"><b>Za tlačidlom</b><span>stmavená plocha bez prvkov rozhrania (spodná lišta appky sa skryje)</span></div>
     <div class="kv"><b>Hudba</b><span>voliteľná, tiché tempo — video funguje aj bez zvuku</span></div>
     <div class="kv"><b>Tlačidlo</b><span>trvalé, farba pulzuje synchrónne so zvýrazneným prvkom appky</span></div>
@@ -528,9 +501,7 @@ button.ghost{background:#dfe7e7;color:#123}
 <script>
 const stage = document.getElementById('stage');
 const note  = document.getElementById('note');
-const noteKicker = document.getElementById('noteKicker');
 const noteTitle  = document.getElementById('noteTitle');
-const noteDesc   = document.getElementById('noteDesc');
 const tap   = document.getElementById('tap');
 const dl    = document.getElementById('dl');
 
@@ -538,7 +509,7 @@ const dl    = document.getElementById('dl');
 const steps = [
   { t:'00:00.0 – 00:01.0', title:'Mobil v strede, headline hore', dur:1000,
     desc:'Otvárame veľkým mobilom v strede záberu, displej už ukazuje domovskú obrazovku Moja 4ka. Tlačidlo dole je viditeľné hneď od začiatku a nad ním svieti trvalý claim Všetko na jednom mieste. Plocha za tlačidlom je stmavená, aby v nej nerušili žiadne prvky rozhrania.',
-    list:['Headline: Máš 4ku? Máš aj Moja 4ka.','Logo 4ka vpravo hore','Nad tlačidlom trvalý claim: Všetko na jednom mieste','Plocha za tlačidlom je čistá — žiadne prvky rozhrania'],
+    list:['Headline: Máš 4ku? Máš aj Moja 4ka.','Logo 4ka vpravo hore','V appke jedna jasná akcia: Dobiť kredit','Nad tlačidlom trvalý claim: Všetko na jednom mieste','Plocha za tlačidlom je čistá — žiadne prvky rozhrania'],
     apply(){ set('s-hook'); clearHl(); pick(false); hideNote(); tapOff(); btnPulse(''); } },
 
   { t:'00:01.0 – 00:01.6', title:'Kamera vletí do displeja', dur:600,
@@ -548,23 +519,23 @@ const steps = [
 
   { t:'00:01.6 – 00:03.2', title:'Prvok appky: Dáta', dur:1600,
     desc:'Kartička Dáta sa zvýrazní. Vedľa nej sa objaví krátka bublina, ktorá vysvetlí, čo tento prvok znamená — animovaný pásik naznačuje, že ide o live ukazovateľ, nie statický obrázok. Tlačidlo dole súčasne pulzuje tyrkysovo.',
-    list:['Zvýraznenie kartičky Dáta (6,4 z 10 GB)','Popiska nad prvkom: DÁTA — "Kontroluj svoj limit"','Podtitul: "Vždy vieš, koľko GB ti ešte zostáva."','Pásik dobehne na 64 %','Tlačidlo pulzuje tyrkysovo'],
-    apply(){ set('in-app show-bars dimmed'); hl('st-data'); showNote('st-data','Dáta','Kontroluj svoj limit','Vždy vieš, koľko GB ti ešte zostáva.','above'); btnPulse('t'); tapOff(); } },
+    list:['Zvýraznenie kartičky Dáta (6,4 z 10 GB)','Popiska nad prvkom: "Kontroluj svoj limit"','Pásik dobehne na 64 %','Tlačidlo pulzuje tyrkysovo'],
+    apply(){ set('in-app show-bars dimmed'); hl('st-data'); showNote('st-data','Kontroluj svoj limit','above'); btnPulse('t'); tapOff(); } },
 
   { t:'00:03.2 – 00:04.7', title:'Prvok appky: Kredit', dur:1500,
     desc:'Rovnaký pohyb sa presunie na kredit. Bublina vedľa kartičky vysvetlí, že ide o aktuálny zostatok, nie o históriu platieb. Tlačidlo pulzuje žlto.',
-    list:['Zvýraznenie kartičky Kredit (4,50 €)','Popiska nad prvkom: KREDIT — "Poznaj svoj zostatok"','Podtitul: "Aktuálny kredit máš vždy na dosah."','Tlačidlo pulzuje žlto'],
-    apply(){ set('in-app show-bars dimmed'); hl('st-credit'); showNote('st-credit','Kredit','Poznaj svoj zostatok','Aktuálny kredit máš vždy na dosah.','above'); btnPulse('y'); } },
+    list:['Zvýraznenie kartičky Kredit (4,50 €)','Popiska nad prvkom: "Poznaj svoj zostatok"','Tlačidlo pulzuje žlto'],
+    apply(){ set('in-app show-bars dimmed'); hl('st-credit'); showNote('st-credit','Poznaj svoj zostatok','above'); btnPulse('y'); } },
 
   { t:'00:04.7 – 00:06.2', title:'Prvok appky: Paušál', dur:1500,
     desc:'Tretie zvýraznenie je aktuálny paušál. Bublina vysvetlí, že ide o prehľad toho, čo je v ňom zahrnuté. Tlačidlo pulzuje tmavou tyrkysovou.',
-    list:['Zvýraznenie kartičky SLOBODA Nekonečno','Popiska nad prvkom: PAUŠÁL — "Vieš, čo máš v paušále"','Podtitul: "Tvoj balík aj jeho výhody na jednom mieste."','Tlačidlo pulzuje tmavou tyrkysovou'],
-    apply(){ set('in-app show-bars dimmed'); hl('st-tariff'); showNote('st-tariff','Paušál','Vieš, čo máš v paušále','Tvoj balík aj jeho výhody na jednom mieste.','above'); btnPulse('td'); } },
+    list:['Zvýraznenie kartičky SLOBODA Nekonečno','Popiska nad prvkom: "Vieš, čo máš v paušále"','Tlačidlo pulzuje tmavou tyrkysovou'],
+    apply(){ set('in-app show-bars dimmed'); hl('st-tariff'); showNote('st-tariff','Vieš, čo máš v paušále','above'); btnPulse('td'); } },
 
   { t:'00:06.2 – 00:08.0', title:'Akcia: Dobiť kredit', dur:1800,
-    desc:'Kamera sa presunie nižšie na dlaždicu Dobiť kredit a zvýrazní ju rovnakým spôsobom ako predošlé prvky. Bublina vysvetlí, že ide o priamu akciu v appke. Tlačidlo dole pulzuje treťou brandovou farbou, aby bolo jasné, že je to iný typ prvku — akcia, nie len prehľad.',
-    list:['Zvýraznenie dlaždice Dobiť kredit','Popiska nad prvkom: DOBITIE — "Dobi kredit jedným ťukom"','Podtitul: "Bez pobočky, bez čakania — priamo v appke."','Tlačidlo pulzuje sýto tyrkysovo (farba karty appky)'],
-    apply(){ set('in-app show-bars dimmed'); hl('t-topup'); showNote('t-topup','Dobitie','Dobi kredit jedným ťukom','Bez pobočky, bez čakania — priamo v appke.','above'); btnPulse('tc'); } },
+    desc:'Kamera sa presunie nižšie na jedinú akciu v sekcii Správa Mojich služieb — široké tlačidlo Dobiť kredit — a zvýrazní ho rovnakým spôsobom ako predošlé prvky. Bublina vysvetlí, že ide o priamu akciu v appke. Tlačidlo dole pulzuje treťou brandovou farbou, aby bolo jasné, že je to iný typ prvku — akcia, nie len prehľad.',
+    list:['Sekcia Správa Mojich služieb má jedinú akciu — Dobiť kredit','Zvýraznenie širokého tlačidla Dobiť kredit','Popiska nad prvkom: "Dobi kredit jedným ťukom"','Tlačidlo pulzuje sýto tyrkysovo (farba karty appky)'],
+    apply(){ set('in-app show-bars dimmed'); hl('t-topup'); showNote('t-topup','Dobi kredit jedným ťukom','above'); btnPulse('tc'); } },
 
   { t:'00:08.0 – 00:10.0', title:'Výzva na stiahnutie', dur:2000,
     desc:'Kamera sa vráti von, obraz sa prekryje brandovou plochou s logom. Toto je posledná akcia videa: úplne čistá scéna, žiadna bublina, žiadny text okolo tlačidla — len logo, nadpis a tlačidlo, ktoré divák už 8 sekúnd pozná.',
@@ -583,13 +554,11 @@ function set(cls){ stage.className = 'stage ' + cls; }
 function hl(id){ clearHl(); document.getElementById(id).classList.add('hl'); }
 function pick(on){ document.getElementById('a10').classList.toggle('pick', !!on); }
 function clearHl(){document.querySelectorAll('.hl').forEach(e=>e.classList.remove('hl'));}
-function showNote(id, kicker, title, desc, placement){
+function showNote(id, title, placement){
   const el = document.getElementById(id);
   const sRect = stage.getBoundingClientRect();
   const eRect = el.getBoundingClientRect();
-  noteKicker.textContent = kicker;
-  noteTitle.textContent  = title;
-  noteDesc.textContent   = desc;
+  noteTitle.textContent = title;
   note.classList.add('on');
   const above = (placement !== 'below');
   note.classList.toggle('p-above', above);
