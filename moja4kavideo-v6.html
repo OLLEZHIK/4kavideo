@@ -170,6 +170,12 @@ body{
 }
 .tile.solo .ic{font-size:15px;margin:0;color:var(--y)}
 .tile.solo .tx{font-size:11px;color:#fff;letter-spacing:-.2px}
+/* druhá akcia — rovnaký tvar, iná farba, aby sa nezliala s dobitím kreditu */
+.tile.solo.alt{
+  background:linear-gradient(140deg,#343434 0%,#242424 100%);
+  box-shadow:0 4px 14px rgba(0,0,0,.35),0 0 0 1px rgba(246,209,6,.45) inset;
+}
+.tile.solo.alt .ic{color:var(--t)}
 
 .nav{display:flex;justify-content:space-around;padding:7px 0 9px;background:#101010;
   border-top:1px solid #242424}
@@ -362,7 +368,7 @@ button.ghost{background:#dfe7e7;color:#123}
           </div>
 
           <div class="appbody">
-            <div class="greet">Ahoj Milan, pozri čo som ti pripravil.</div>
+            <div class="greet">Ahoj, pozri čo všetko máš v 4ka appke.</div>
 
             <div class="overview">
               <div class="stat" id="st-data">
@@ -387,6 +393,7 @@ button.ghost{background:#dfe7e7;color:#123}
             <div class="sect">Správa Mojich služieb</div>
             <div class="tiles">
               <div class="tile solo" id="t-topup"><span class="ic">＋</span><span class="tx">Dobiť kredit</span></div>
+              <div class="tile solo alt" id="t-plans"><span class="ic">▦</span><span class="tx">Nákup paušálov</span></div>
             </div>
           </div>
 
@@ -489,13 +496,13 @@ button.ghost{background:#dfe7e7;color:#123}
   <div class="card">
     <h2>Parametre</h2>
     <div class="kv"><b>Formát</b><span>360 × 720 px, bezokrajovo (bez zaoblenia a rámu)</span></div>
-    <div class="kv"><b>Dĺžka</b><span>10 sekúnd — nástup 0,5 s, zvyšok času je v záberoch s obsahom</span></div>
+    <div class="kv"><b>Dĺžka</b><span>11,5 sekundy — nástup 0,5 s, zvyšok času je v záberoch s obsahom</span></div>
     <div class="kv"><b>Veľkosť</b><span>cieľ ≤ 4 MB, max. 8 MB (SMS/MMS s videom)</span></div>
     <div class="kv"><b>Titulky</b><span>jeden veľký nadpis nad zvýrazneným prvkom, bez podtitulu</span></div>
   <div class="kv"><b>Claim</b><span>Všetko na jednom mieste — statický, biely, trvalo nad tlačidlom</span></div>
   <div class="kv"><b>Za tlačidlom</b><span>stmavená plocha bez prvkov rozhrania (spodná lišta appky sa skryje)</span></div>
     <div class="kv"><b>Hudba</b><span>voliteľná, tiché tempo — video funguje aj bez zvuku</span></div>
-    <div class="kv"><b>Tlačidlo</b><span>trvalé; farba sa mení pri každom zábere — tyrkysová, žltá, tmavá tyrkysová, biela</span></div>
+    <div class="kv"><b>Tlačidlo</b><span>trvalé; farba sa mení pri každom zábere — tyrkysová, žltá, tmavá tyrkysová, biela, tyrkysová</span></div>
   </div>
 </div>
 
@@ -510,7 +517,7 @@ const dl    = document.getElementById('dl');
 const steps = [
   { t:'00:00.0 – 00:00.5', title:'Nástup: mobil v strede, headline hore', dur:500,
     desc:'Krátky, úderný nástup — pol sekundy. Veľký mobil v strede záberu, displej už ukazuje domovskú obrazovku Moja 4ka. Headline kladie otázku, na ktorú odpovedá zvyšok videa. Tlačidlo dole je viditeľné hneď od začiatku a nad ním svieti trvalý claim Všetko na jednom mieste. Plocha za tlačidlom je stmavená, aby v nej nerušili žiadne prvky rozhrania.',
-    list:['Headline: Koľko ti zostáva? Vieš to hneď.','Logo 4ka vpravo hore','V appke jedna jasná akcia: Dobiť kredit','Nad tlačidlom trvalý claim: Všetko na jednom mieste','Plocha za tlačidlom je čistá — žiadne prvky rozhrania'],
+    list:['Headline: Koľko ti zostáva? Vieš to hneď.','Logo 4ka vpravo hore','V appke dve jasné akcie: Dobiť kredit a Nákup paušálov','Nad tlačidlom trvalý claim: Všetko na jednom mieste','Plocha za tlačidlom je čistá — žiadne prvky rozhrania'],
     apply(){ set('s-hook'); clearHl(); pick(false); hideNote(); tapOff(); btnPulse(''); } },
 
   { t:'00:00.5 – 00:01.1', title:'Kamera vletí do displeja', dur:600,
@@ -535,10 +542,15 @@ const steps = [
 
   { t:'00:06.0 – 00:07.9', title:'Akcia: Dobiť kredit', dur:1900,
     desc:'Kamera sa presunie nižšie na jedinú akciu v sekcii Správa Mojich služieb — široké tlačidlo Dobiť kredit — a zvýrazní ho rovnakým spôsobom ako predošlé prvky. Bublina vysvetlí, že ide o priamu akciu v appke. Tlačidlo dole sa prefarbí na bielu — najsvetlejší, najkontrastnejší stav v celom videu, aby bolo jasné, že ide o iný typ prvku: akciu, nie len prehľad.',
-    list:['Sekcia Správa Mojich služieb má jedinú akciu — Dobiť kredit','Zvýraznenie širokého tlačidla Dobiť kredit','Popiska nad prvkom: "Dobi kredit jedným ťukom"','Tlačidlo sa prefarbí na bielu — najsilnejší kontrast pred záverom'],
+    list:['Sekcia Správa Mojich služieb má dve akcie — Dobiť kredit a Nákup paušálov','Zvýraznenie širokého tlačidla Dobiť kredit','Popiska nad prvkom: "Dobi kredit jedným ťukom"','Tlačidlo sa prefarbí na bielu — najsilnejší kontrast pred záverom'],
     apply(){ set('in-app show-bars dimmed'); hl('t-topup'); showNote('t-topup','Dobi kredit jedným ťukom','above'); btnPulse('w'); } },
 
-  { t:'00:07.9 – 00:10.0', title:'Výzva na stiahnutie', dur:2100,
+  { t:'00:07.9 – 00:09.4', title:'Akcia: Nákup paušálov', dur:1500,
+    desc:'Hneď pod dobitím kreditu je druhá akcia — Nákup paušálov. Má rovnaký tvar ako predošlé tlačidlo, ale inú farbu, aby bolo jasné, že ide o samostatný produkt, nie o variantu dobitia. Popiska hovorí, že nákup je otázka jedného kliknutia.',
+    list:['Zvýraznenie tlačidla Nákup paušálov','Popiska nad prvkom: "Kúp produkt na 1 klik"','Tmavá karta so žltým prízvukom — odlíšená od dobitia kreditu','Tlačidlo pulzuje tyrkysovo'],
+    apply(){ set('in-app show-bars dimmed'); hl('t-plans'); showNote('t-plans','Kúp produkt na 1 klik','above'); btnPulse('t'); } },
+
+  { t:'00:09.4 – 00:11.5', title:'Výzva na stiahnutie', dur:2100,
     desc:'Kamera sa vráti von, obraz sa prekryje brandovou plochou s logom. Toto je posledná akcia videa: úplne čistá scéna, žiadna bublina, žiadny text okolo tlačidla — len logo, nadpis a tlačidlo, ktoré divák už 8 sekúnd pozná.',
     list:['Logo 4ka, headline Stiahni si Moja 4ka','Zadarmo pre iOS a Android','Claim Všetko na jednom mieste nad tlačidlom zostáva','Tlačidlo dole zostáva, plocha za ním je čistá'],
     apply(){ set('s-cta'); clearHl(); pick(false); hideNote(); tapOff(); btnPulse(''); } }
