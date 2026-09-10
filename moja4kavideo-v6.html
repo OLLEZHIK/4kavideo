@@ -78,7 +78,7 @@ body{
 
 /* rozbalený zoznam čísel */
 .numlist{
-  position:absolute;left:34px;right:34px;top:calc(100% + 6px);z-index:12;
+  position:absolute;left:14px;right:14px;top:calc(100% + 8px);z-index:12;
   background:#242426;border:1px solid rgba(255,255,255,.10);border-radius:14px;
   box-shadow:0 18px 38px rgba(0,0,0,.6);overflow:hidden;
   opacity:0;transform:translateY(-8px) scale(.97);transform-origin:50% 0;
@@ -87,12 +87,12 @@ body{
 }
 .stage.numopen .numlist{opacity:1;transform:none}
 .numlist .it{display:flex;align-items:center;justify-content:space-between;
-  padding:9px 12px;border-bottom:1px solid rgba(255,255,255,.07)}
+  padding:11px 15px;border-bottom:1px solid rgba(255,255,255,.07)}
 .numlist .it:last-child{border-bottom:none}
 .numlist .it.on{background:rgba(0,194,199,.14)}
-.numlist .it .n{font-size:12px;font-weight:800;color:#fff}
-.numlist .it .r{font-size:8.5px;color:var(--mut);font-weight:700;margin-top:1px}
-.numlist .it .ck{color:var(--t);font-size:12px;font-weight:800}
+.numlist .it .n{font-size:14px;font-weight:800;color:#fff;letter-spacing:.2px}
+.numlist .it .r{font-size:9.5px;color:var(--mut);font-weight:700;margin-top:2px}
+.numlist .it .ck{color:var(--t);font-size:14px;font-weight:800}
 
 /* prepínač typu spotreby */
 .chips{display:flex;gap:6px;padding:12px 14px 0;overflow:hidden}
@@ -110,23 +110,23 @@ body{
 .sect2{font-size:11px;font-weight:800;color:#e8eef0;letter-spacing:-.2px}
 
 /* prstence spotreby */
-.usage{background:var(--card);border-radius:16px;padding:14px 10px;
-  display:flex;justify-content:space-around;align-items:center;
+.usage{background:var(--card);border-radius:16px;padding:16px 8px 14px;
+  display:flex;justify-content:space-around;align-items:flex-start;
   transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s,background .45s}
-.ring{position:relative;width:108px;height:108px;display:flex;align-items:center;justify-content:center}
+.gauge{display:flex;flex-direction:column;align-items:center;gap:9px}
+.gauge .cap{font-size:10.5px;font-weight:800;color:var(--mut);letter-spacing:-.1px;white-space:nowrap}
+.ring{position:relative;width:126px;height:126px;display:flex;align-items:center;justify-content:center}
 .ring svg{position:absolute;inset:0;transform:rotate(-90deg)}
 .ring .trk{fill:none;stroke:rgba(255,255,255,.10);stroke-width:9}
 .ring .arc{fill:none;stroke-width:9;stroke-linecap:round;
   stroke-dasharray:302;stroke-dashoffset:302;transition:stroke-dashoffset 1.15s cubic-bezier(.3,.8,.3,1)}
-.ring.pu .arc{stroke:var(--pu);filter:drop-shadow(0 0 6px rgba(139,63,232,.75))}
-.ring.yl .arc{stroke:var(--y);filter:drop-shadow(0 0 6px rgba(245,197,24,.7))}
+.ring.pu .arc{stroke:var(--pu);filter:drop-shadow(0 0 7px rgba(139,63,232,.8))}
+.ring.yl .arc{stroke:var(--y);filter:drop-shadow(0 0 7px rgba(245,197,24,.75))}
 .stage.show-bars .ring.pu .arc{stroke-dashoffset:54}    /* 164 z 200 */
 .stage.show-bars .ring.yl .arc{stroke-dashoffset:252}   /* 340,79 MB z 2 GB */
-.ring .in{text-align:center;line-height:1.05}
-.ring .in .k{font-size:7.5px;color:var(--mut);font-weight:800}
-.ring .in .v{font-size:19px;font-weight:800;letter-spacing:-.5px;margin:1px 0}
-.ring .in .u{font-size:8px;font-weight:800;color:#dfe7e8}
-.ring .in .o{font-size:7.5px;color:var(--mut);font-weight:700}
+.ring .in{text-align:center;line-height:1.06}
+.ring .in .v{display:block;font-size:27px;font-weight:800;letter-spacing:-1px}
+.ring .in .u{display:block;font-size:11px;font-weight:800;color:#e6eef0;margin-top:2px}
 
 /* karta služby */
 .svc{background:var(--card);border-radius:16px;padding:13px 13px 14px;
@@ -327,20 +327,20 @@ button.ghost{background:#dfe7e7;color:#123}
 
         <div class="numrow">
           <div class="numbtn" id="a-num">
-            <b>0949 189 784</b><span class="cv">▾</span>
+            <b>0949 307 152</b><span class="cv">▾</span>
           </div>
           <div class="numsub">hlavné <span class="gear">⚙</span></div>
 
           <div class="numlist" id="a-numlist">
             <div class="it on">
-              <div><div class="n">0949 189 784</div><div class="r">hlavné číslo</div></div>
+              <div><div class="n">0949 307 152</div><div class="r">hlavné číslo</div></div>
               <div class="ck">✓</div>
             </div>
             <div class="it">
-              <div><div class="n">0948 552 130</div><div class="r">pracovné</div></div>
+              <div><div class="n">0948 621 940</div><div class="r">pracovné</div></div>
             </div>
             <div class="it">
-              <div><div class="n">0905 771 402</div><div class="r">pre deti</div></div>
+              <div><div class="n">0905 483 276</div><div class="r">pre deti</div></div>
             </div>
           </div>
         </div>
@@ -361,23 +361,19 @@ button.ghost{background:#dfe7e7;color:#123}
           <div class="pane">
             <div class="sect2">Celková aktuálna spotreba</div>
             <div class="usage" id="a-usage">
-              <div class="ring pu">
-                <svg viewBox="0 0 108 108"><circle class="trk" cx="54" cy="54" r="48"></circle><circle class="arc" cx="54" cy="54" r="48"></circle></svg>
-                <div class="in">
-                  <div class="k">Zostáva</div>
-                  <div class="v">164</div>
-                  <div class="u">min / SMS</div>
-                  <div class="o">z 200</div>
+              <div class="gauge">
+                <div class="ring pu">
+                  <svg viewBox="0 0 108 108"><circle class="trk" cx="54" cy="54" r="48"></circle><circle class="arc" cx="54" cy="54" r="48"></circle></svg>
+                  <div class="in"><span class="v">164</span><span class="u">min / SMS</span></div>
                 </div>
+                <div class="cap">Zostáva z 200</div>
               </div>
-              <div class="ring yl">
-                <svg viewBox="0 0 108 108"><circle class="trk" cx="54" cy="54" r="48"></circle><circle class="arc" cx="54" cy="54" r="48"></circle></svg>
-                <div class="in">
-                  <div class="k">Zostáva</div>
-                  <div class="v">340,79</div>
-                  <div class="u">MB</div>
-                  <div class="o">z 2 GB</div>
+              <div class="gauge">
+                <div class="ring yl">
+                  <svg viewBox="0 0 108 108"><circle class="trk" cx="54" cy="54" r="48"></circle><circle class="arc" cx="54" cy="54" r="48"></circle></svg>
+                  <div class="in"><span class="v">340,79</span><span class="u">MB</span></div>
                 </div>
+                <div class="cap">Zostáva z 2 GB</div>
               </div>
             </div>
 
@@ -507,13 +503,13 @@ const steps = [
     apply(){ base('dimmed'); title1(); hl('a-stvorec'); showNote('a-stvorec','Štvorec vždy pomôže','below'); btnPulse('t'); } },
 
   { t:'00:02.4 – 00:04.8', title:'Správa čísel — rozbalený zoznam', dur:2400,
-    desc:'Ťuknutie na číslo rozbalí zoznam všetkých čísel na konte. Vidno, že appka nie je len pre jedno číslo — prepneš sa medzi nimi jedným ťuknutím.',
-    list:['Zvýraznenie čísla 0949 189 784','Rozbalí sa zoznam: hlavné, pracovné, pre deti','Popiska: "Prepni číslo jedným ťukom"','Tlačidlo pulzuje fialovo'],
-    apply(){ base('dimmed numopen'); title1(); hl('a-numlist'); showNote('a-numlist','Prepni číslo jedným ťukom','below'); btnPulse('pu'); } },
+    desc:'Ťuknutie na číslo rozbalí zoznam všetkých čísel na konte cez celú šírku obrazovky. Vidno, že appka nie je len pre jedno číslo — všetky čísla sa spravujú z jedného miesta.',
+    list:['Zvýraznenie čísla 0949 307 152','Zoznam sa rozbalí na plnú šírku: hlavné, pracovné, pre deti','Popiska: "Spravuj čísla na jednom mieste"','Tlačidlo pulzuje fialovo'],
+    apply(){ base('dimmed numopen'); title1(); hl('a-numlist'); showNote('a-numlist','Spravuj čísla na jednom mieste','below'); btnPulse('pu'); } },
 
   { t:'00:04.8 – 00:06.6', title:'Spotreba — koľko ti zostáva', dur:1800,
-    desc:'Dva prstence dobehnú na aktuálny stav: fialový minúty a SMS, žltý dáta. Jeden pohľad a vieš, na čom si.',
-    list:['Zvýraznenie karty Celková aktuálna spotreba','Prstence dobehnú na 164 z 200 a 340,79 MB z 2 GB','Popiska: "Vidíš, koľko ti zostáva"','Tlačidlo pulzuje žlto'],
+    desc:'Dva prstence dobehnú na aktuálny stav: fialový minúty a SMS, žltý dáta. V prstenci je len číslo a jednotka, popis „Zostáva z…“ je pod ním — tak sa údaje neprekrývajú a čítajú sa na jeden pohľad.',
+    list:['Zvýraznenie karty Celková aktuálna spotreba','Väčšie prstence: v strede číslo a jednotka, popis pod prstencom','Popiska: "Vidíš, koľko ti zostáva"','Tlačidlo pulzuje žlto'],
     apply(){ base('dimmed show-bars'); title1(); hl('a-usage'); showNote('a-usage','Vidíš, koľko ti zostáva','below'); btnPulse('y'); } },
 
   { t:'00:06.6 – 00:08.6', title:'Paušál — čo v ňom máš', dur:2000,
