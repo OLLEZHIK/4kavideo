@@ -60,21 +60,24 @@ body{
   box-shadow:0 0 0 1.5px rgba(245,197,24,.9)}
 .stv .av svg{display:block;width:100%;height:100%}
 .stv .lb{font-size:11px;font-weight:800;color:#eafeff;letter-spacing:-.2px}
-.icbtn{position:relative;width:30px;height:30px;border-radius:50%;background:rgba(0,0,0,.30);
-  display:flex;align-items:center;justify-content:center;font-size:13px;color:var(--t);flex:0 0 auto}
+.icbtn{position:relative;width:32px;height:32px;border-radius:50%;background:rgba(0,0,0,.30);
+  display:flex;align-items:center;justify-content:center;color:var(--t);flex:0 0 auto}
+.icbtn>svg{width:17px;height:17px;display:block}
 .icbtn .bdg{position:absolute;top:-2px;right:-2px;min-width:14px;height:14px;border-radius:999px;
   background:#E5484D;color:#fff;font-size:8px;font-weight:800;display:flex;align-items:center;
   justify-content:center;padding:0 3px}
 
 /* výber čísla */
-.numrow{display:flex;flex-direction:column;align-items:center;gap:1px;padding:12px 14px 0;position:relative}
-.numbtn{display:flex;align-items:center;gap:7px;padding:3px 10px;border-radius:12px;
-  transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s,background .45s}
-.numbtn b{font-size:21px;font-weight:800;letter-spacing:.3px}
-.numbtn .cv{font-size:11px;color:#cfeff0;transition:transform .35s ease}
+.numrow{display:block;padding:12px 14px 0;position:relative}
+.numbtn{display:flex;align-items:center;justify-content:space-between;gap:10px;
+  background:rgba(0,0,0,.26);border:1px solid rgba(255,255,255,.12);
+  border-radius:15px;padding:11px 13px 11px 15px;
+  transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s,background .45s,filter .45s}
+.numbtn b{display:block;font-size:21px;font-weight:800;letter-spacing:.4px;line-height:1.1}
+.numbtn em{display:block;font-style:normal;font-size:10.5px;color:#c6e9ea;font-weight:700;margin-top:3px}
+.numbtn .cv{width:24px;height:24px;color:#d8f4f5;flex:0 0 auto;transition:transform .35s ease}
+.numbtn .cv svg{display:block;width:100%;height:100%}
 .stage.numopen .numbtn .cv{transform:rotate(180deg)}
-.numsub{display:flex;align-items:center;gap:6px;font-size:11px;color:#bfe4e5;font-weight:700}
-.numsub .gear{color:var(--t);font-size:11px}
 
 /* rozbalený zoznam čísel */
 .numlist{
@@ -105,12 +108,12 @@ body{
 .rail{position:absolute;inset:0;display:flex;width:200%;
   transition:transform .62s cubic-bezier(.5,.05,.2,1)}
 .stage.pane2 .rail{transform:translateX(-50%)}
-.pane{width:50%;padding:14px 14px 0;display:flex;flex-direction:column;gap:11px}
+.pane{width:50%;padding:16px 14px 0;display:flex;flex-direction:column;gap:12px}
 
-.sect2{font-size:11px;font-weight:800;color:#e8eef0;letter-spacing:-.2px}
+.sect2{font-size:12.5px;font-weight:800;color:#e8eef0;letter-spacing:-.2px}
 
 /* prstence spotreby */
-.usage{background:var(--card);border-radius:16px;padding:16px 8px 14px;
+.usage{background:var(--card);border-radius:18px;padding:18px 8px 16px;
   display:flex;justify-content:space-around;align-items:flex-start;
   transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s,background .45s}
 .gauge{display:flex;flex-direction:column;align-items:center;gap:9px}
@@ -129,52 +132,46 @@ body{
 .ring .in .u{display:block;font-size:11px;font-weight:800;color:#e6eef0;margin-top:2px}
 
 /* karta služby */
-.svc{background:var(--card);border-radius:16px;padding:13px 13px 14px;
-  transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s,background .45s}
-.svc .nm{font-size:16px;font-weight:800;text-align:center;letter-spacing:-.3px}
-.svc .vd{font-size:9px;color:var(--mut);text-align:center;margin:3px 0 10px;font-weight:700}
-.mtr{height:7px;border-radius:99px;background:rgba(255,255,255,.12);overflow:hidden;margin-bottom:5px}
-.mtr i{display:block;height:100%;width:0;border-radius:99px;transition:width 1.05s cubic-bezier(.3,.8,.3,1)}
-.mtr.y i{background:var(--y);box-shadow:0 0 8px rgba(245,197,24,.65)}
-.mtr.p i{background:var(--pu);box-shadow:0 0 8px rgba(139,63,232,.65)}
-.stage.show-bars .mtr.y i{width:17%}
-.stage.show-bars .mtr.p i{width:82%}
-.svc .l1{font-size:9.5px;font-weight:700;color:#e4ebec}
-.svc .l2{font-size:8px;color:var(--mut);font-weight:700;margin-bottom:9px}
+.svc{background:var(--card);border-radius:18px;padding:20px 16px 22px;
+  transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s,background .45s,filter .45s}
+.svc .nm{font-size:24px;font-weight:800;text-align:center;letter-spacing:-.6px}
+.svc .vd{font-size:12px;color:var(--mut);text-align:center;margin-top:7px;font-weight:700}
 
 /* dlaždice akcií na druhej obrazovke */
 .acts{display:flex;flex-direction:column;gap:10px}
-.act{display:flex;align-items:center;gap:11px;background:var(--card);border-radius:16px;padding:11px 12px;
-  transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s,background .45s}
-.act .sq{width:46px;height:46px;border-radius:13px;flex:0 0 auto;
-  display:flex;align-items:center;justify-content:center;font-size:21px;color:#fff;
+.act{display:flex;align-items:center;gap:12px;background:var(--card);border-radius:17px;padding:13px 13px;
+  transition:transform .45s cubic-bezier(.2,.7,.3,1),box-shadow .45s,background .45s,filter .45s}
+.act .sq{width:50px;height:50px;border-radius:15px;flex:0 0 auto;
+  display:flex;align-items:center;justify-content:center;color:#fff;
   box-shadow:0 5px 14px rgba(0,0,0,.4)}
-.act.a1 .sq{background:linear-gradient(145deg,#2FA8DC 0%,#0E7FA8 100%)}
-.act.a2 .sq{background:linear-gradient(145deg,#F5C518 0%,#C89A05 100%);color:#14232b}
-.act.a3 .sq{background:linear-gradient(145deg,#12B5A8 0%,#0A7E72 100%)}
+.act .sq>svg{position:relative;z-index:1;width:29px;height:29px;display:block}
+.act .sq{background:linear-gradient(135deg,#2FA6D8 0%,#1C9BC0 46%,#0E8C8C 100%);
+  position:relative;overflow:hidden}
+.act .sq::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(135deg,transparent 47%,rgba(0,52,62,.22) 47%)}
 .act .tx{display:flex;flex-direction:column;min-width:0}
-.act .tx .t1{display:block;font-size:13px;font-weight:800;letter-spacing:-.2px}
-.act .tx .t2{display:block;font-size:8.5px;color:var(--mut);font-weight:700;margin-top:3px;line-height:1.25}
+.act .tx .t1{display:block;font-size:14.5px;font-weight:800;letter-spacing:-.3px}
+.act .tx .t2{display:block;font-size:10px;color:var(--mut);font-weight:700;margin-top:3px;line-height:1.3}
 .act .go{margin-left:auto;color:var(--mut);font-size:14px;font-weight:800}
-.bal{background:linear-gradient(140deg,#0C6569 0%,#0A4A4E 100%);border-radius:16px;
-  padding:12px 14px;display:flex;align-items:center;justify-content:space-between}
-.bal .k{font-size:9px;color:#a9dedf;font-weight:800}
-.bal .v{font-size:22px;font-weight:800;letter-spacing:-.6px}
-.bal .v small{font-size:11px;margin-left:2px;color:#cfeff0}
+.bal{background:linear-gradient(140deg,#0C6569 0%,#0A4A4E 100%);border-radius:18px;
+  padding:18px 20px;display:flex;flex-direction:column;gap:3px}
+.bal .k{font-size:12px;color:#a9dedf;font-weight:800;letter-spacing:.2px}
+.bal .v{font-size:34px;font-weight:800;letter-spacing:-1.2px;line-height:1}
+.bal .v small{font-size:16px;margin-left:3px;color:#cfeff0}
 
 /* spodná navigácia */
-.nav{display:flex;justify-content:space-around;padding:8px 0 10px;background:#101012;
-  border-top:1px solid rgba(255,255,255,.07);flex:0 0 auto}
-.nav div{font-size:8px;color:#7d8c8c;font-weight:800;text-align:center}
-.nav div span{display:block;font-size:14px;margin-bottom:2px}
-.nav div.on{color:var(--t)}
 
 /* ---------- ZVÝRAZNENIE ---------- */
-.dim{position:absolute;inset:0;background:rgba(2,8,10,.68);opacity:0;
+.dim{position:absolute;inset:0;background:rgba(2,8,10,.62);opacity:0;
   transition:opacity .4s;pointer-events:none;z-index:8}
 .stage.dimmed .dim{opacity:1}
-.hl{position:relative;z-index:10;transform:scale(1.045);
-  box-shadow:0 0 0 2px var(--t),0 14px 30px rgba(0,0,0,.6)}
+.hl{position:relative;z-index:10;transform:scale(1.05);
+  filter:brightness(1.24) saturate(1.08);
+  box-shadow:inset 0 0 0 200px rgba(255,255,255,.19),
+             0 0 0 2.5px var(--t),
+             0 0 30px rgba(0,194,199,.55),
+             0 18px 36px rgba(0,0,0,.7)}
+.numlist.hl{position:absolute}
 .numlist.hl,.stage.numopen .numlist{z-index:12}
 
 /* ---------- POPISKA ---------- */
@@ -321,15 +318,15 @@ button.ghost{background:#dfe7e7;color:#123}
             <span class="av"><svg viewBox="0 0 40 40" aria-hidden="true"><rect width="40" height="40" rx="20" fill="#141518"/><path d="M6 17c0-7 6-12 14-12s14 5 14 12c0 2-1 3-2 2-1-4-3-5-5-4-3 1-5 1-8 0-3-1-6 0-7 4-1 2-6 1-6-2z" fill="#F5C518"/><rect x="9" y="12" width="22" height="22" rx="10" fill="#0B0C0E" stroke="#00E5EC" stroke-width="2"/><rect x="13" y="19" width="14" height="3.4" rx="1.7" fill="#00E5EC"/><circle cx="20" cy="28" r="3.4" fill="#0E1114" stroke="#00E5EC" stroke-width="1.2"/></svg></span>
             <span class="lb">Spýtaj sa Štvorca</span>
           </div>
-          <div class="icbtn">♪<span class="bdg">5</span></div>
-          <div class="icbtn">☰</div>
+          <div class="icbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8.6a6 6 0 1 0-12 0c0 6.4-2.4 8.2-2.4 8.2h16.8S18 15 18 8.6z"/><path d="M13.7 20.4a2 2 0 0 1-3.4 0"/></svg><span class="bdg">5</span></div>
+          <div class="icbtn"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg></div>
         </div>
 
         <div class="numrow">
           <div class="numbtn" id="a-num">
-            <b>0949 307 152</b><span class="cv">▾</span>
+            <span class="nn"><b>0949 307 152</b><em>hlavné číslo</em></span>
+            <span class="cv"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9.5 12 15.5 18 9.5"/></svg></span>
           </div>
-          <div class="numsub">hlavné <span class="gear">⚙</span></div>
 
           <div class="numlist" id="a-numlist">
             <div class="it on">
@@ -377,39 +374,33 @@ button.ghost{background:#dfe7e7;color:#123}
               </div>
             </div>
 
-            <div class="sect2">Jednotlivé služby</div>
+            <div class="sect2">Môj paušál</div>
             <div class="svc" id="a-svc">
               <div class="nm">SLOBODA 200</div>
-              <div class="vd">Platnosť do 14. 9. 2026, 11:28</div>
-              <div class="mtr y"><i></i></div>
-              <div class="l1">340,79 MB zostáva (z toho 340,79 MB v EÚ)</div>
-              <div class="l2">z 2 GB v SR</div>
-              <div class="mtr p"><i></i></div>
-              <div class="l1">164 min/SMS zostáva</div>
-              <div class="l2">z 200 min/SMS v SR/EÚ</div>
+              <div class="vd">Platnosť do 14. 9. 2026</div>
             </div>
           </div>
 
           <!-- obrazovka 2 — akcie -->
           <div class="pane">
             <div class="bal">
-              <div><div class="k">Kredit</div><div class="v">4,50<small>€</small></div></div>
-              <div class="k">Platné do 30. 9. 2026</div>
+              <div class="k">Kredit</div>
+              <div class="v">4,50<small>€</small></div>
             </div>
             <div class="sect2">Správa mojich služieb</div>
             <div class="acts">
               <div class="act a1" id="a-topup">
-                <span class="sq">⊕</span>
+                <span class="sq"><svg viewBox="0 0 32 32" aria-hidden="true"><g fill="#fff"><ellipse cx="11.2" cy="8.4" rx="8.2" ry="3.1"/><path d="M3 8.4v3.1c0 1.7 3.7 3.1 8.2 3.1s8.2-1.4 8.2-3.1V8.4c0 1.7-3.7 3.1-8.2 3.1S3 10.1 3 8.4z"/><path d="M3 13.2v3.1c0 1.7 3.7 3.1 8.2 3.1h.9v-3.1h-.9c-4.5 0-8.2-1.4-8.2-3.1z"/></g><circle cx="21.6" cy="12.4" r="6.4" fill="#fff" stroke="#1493B4" stroke-width="1.7"/><path d="M21.6 9.1v6.6M18.3 12.4h6.6" stroke="#1493B4" stroke-width="2.2" stroke-linecap="round"/><rect x="15.4" y="18.6" width="12.4" height="11.2" rx="2.8" fill="#fff" stroke="#1493B4" stroke-width="1.7"/><path d="M21.6 27.3v-6.1M18.7 24l2.9-2.9L24.5 24" stroke="#1493B4" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
                 <span class="tx"><span class="t1">Dobiť kredit</span><span class="t2">Kartou alebo prevodom, hneď</span></span>
                 <span class="go">›</span>
               </div>
               <div class="act a2" id="a-plans">
-                <span class="sq">▦</span>
+                <span class="sq"><svg viewBox="0 0 32 32" aria-hidden="true"><rect x="6.4" y="2.6" width="15.2" height="26.8" rx="3.4" fill="#fff"/><rect x="11" y="5.4" width="6" height="1.9" rx=".95" fill="#1493B4"/><circle cx="22.6" cy="21.8" r="6.9" fill="#fff" stroke="#1493B4" stroke-width="1.7"/><path d="M22.6 18.3v7M19.1 21.8h7" stroke="#1493B4" stroke-width="2.2" stroke-linecap="round"/></svg></span>
                 <span class="tx"><span class="t1">Nákup paušálov</span><span class="t2">Dáta, minúty aj balíky do EÚ</span></span>
                 <span class="go">›</span>
               </div>
               <div class="act a3" id="a-smart">
-                <span class="sq">↻</span>
+                <span class="sq"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M26.6 13.4A11 11 0 1 0 27 17.6" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round"/><path d="M28.2 7.1v6.4h-6.4" fill="none" stroke="#fff" stroke-width="3.1" stroke-linecap="round" stroke-linejoin="round"/><g fill="#fff"><ellipse cx="15.4" cy="14.6" rx="5.6" ry="2.2"/><path d="M9.8 14.6v3.6c0 1.2 2.5 2.2 5.6 2.2s5.6-1 5.6-2.2v-3.6c0 1.2-2.5 2.2-5.6 2.2s-5.6-1-5.6-2.2z"/></g></svg></span>
                 <span class="tx"><span class="t1">SMART platba</span><span class="t2">Automatické dobitie, keď dochádza</span></span>
                 <span class="go">›</span>
               </div>
@@ -419,11 +410,6 @@ button.ghost{background:#dfe7e7;color:#123}
         </div>
       </div>
 
-      <div class="nav">
-        <div class="on"><span>⌂</span>Domov</div>
-        <div><span>▤</span>4ka Eshop</div>
-        <div><span>◎</span>Peňaženka</div>
-      </div>
     </div>
 
     <div class="dim"></div>
@@ -473,10 +459,10 @@ button.ghost{background:#dfe7e7;color:#123}
   <div class="card">
     <h2>Parametre</h2>
     <div class="kv"><b>Formát</b><span>360 × 720 px, rozhranie vypĺňa celý záber</span></div>
-    <div class="kv"><b>Dĺžka</b><span>18 sekúnd, dve obrazovky appky</span></div>
+    <div class="kv"><b>Dĺžka</b><span>17 sekúnd, deväť záberov, dve obrazovky appky</span></div>
     <div class="kv"><b>Jazyk</b><span>všetko po slovensky</span></div>
     <div class="kv"><b>Záver</b><span>dva funkčné QR kódy — App Store a Google Play</span></div>
-    <div class="kv"><b>Obrazovka 1</b><span>Štvorec, výber čísla, spotreba, paušál</span></div>
+    <div class="kv"><b>Obrazovka 1</b><span>Štvorec, blok s číslom, prstence spotreby, karta paušálu</span></div>
     <div class="kv"><b>Obrazovka 2</b><span>dobitie kreditu, nákup paušálov, SMART platba</span></div>
     <div class="kv"><b>Prechod</b><span>potiahnutie prstom doľava medzi obrazovkami</span></div>
     <div class="kv"><b>Claim</b><span>Všetko na jednom mieste — statický, trvalo nad tlačidlom</span></div>
@@ -492,52 +478,47 @@ const dl    = document.getElementById('dl');
 const scrTitle = document.getElementById('scrTitle');
 
 const steps = [
-  { t:'00:00.0 – 00:00.6', title:'Otvorenie — appka na celý záber', dur:600,
+  { t:'00:00.0 – 00:00.7', title:'Otvorenie — appka na celý záber', dur:700,
     desc:'Žiadny rám mobilu, žiadne pozadie za ním. Rozhranie Moja 4ka vypĺňa celý záber od prvého snímku, presne ako ho používateľ vidí na svojom telefóne.',
     list:['Rozhranie na celú plochu, bez rámu a pozadia','Hlavička v brandovej tyrkysovej','Nad tlačidlom trvalý claim: Všetko na jednom mieste'],
     apply(){ base(); title1(); } },
 
-  { t:'00:00.6 – 00:02.4', title:'Štvorec — asistent v appke', dur:1800,
+  { t:'00:00.7 – 00:02.5', title:'Štvorec — asistent v appke', dur:2600,
     desc:'Prvé, čo zvýrazníme, je Štvorec. Sedí hore v hlavičke, hneď po ruke, a odpovie na čokoľvek okolo paušálu, faktúry či nastavení.',
     list:['Zvýraznenie pásu Spýtaj sa Štvorca','Popiska nad prvkom: "Štvorec vždy pomôže"','Tlačidlo pulzuje tyrkysovo'],
     apply(){ base('dimmed'); title1(); hl('a-stvorec'); showNote('a-stvorec','Štvorec vždy pomôže','below'); btnPulse('t'); } },
 
-  { t:'00:02.4 – 00:04.8', title:'Správa čísel — rozbalený zoznam', dur:2400,
-    desc:'Ťuknutie na číslo rozbalí zoznam všetkých čísel na konte cez celú šírku obrazovky. Vidno, že appka nie je len pre jedno číslo — všetky čísla sa spravujú z jedného miesta.',
-    list:['Zvýraznenie čísla 0949 307 152','Zoznam sa rozbalí na plnú šírku: hlavné, pracovné, pre deti','Popiska: "Spravuj čísla na jednom mieste"','Tlačidlo pulzuje fialovo'],
+  { t:'00:02.5 – 00:04.9', title:'Správa čísel — rozbalený zoznam', dur:2300,
+    desc:'Číslo je samostatný blok cez celú šírku so šípkou vpravo. Ťuknutie ho rozbalí a zoznam vypadne presne na jeho šírku — nič sa pritom neposúva, obsah pod ním len stmavne.',
+    list:['Zvýraznenie čísla 0949 307 152','Zoznam vypadne presne na šírku bloku s číslom','Obsah pod ním sa neposúva, len stmavne','Popiska: "Spravuj čísla na jednom mieste"','Tlačidlo pulzuje fialovo'],
     apply(){ base('dimmed numopen'); title1(); hl('a-numlist'); showNote('a-numlist','Spravuj čísla na jednom mieste','below'); btnPulse('pu'); } },
 
-  { t:'00:04.8 – 00:06.6', title:'Spotreba — koľko ti zostáva', dur:1800,
-    desc:'Dva prstence dobehnú na aktuálny stav: fialový minúty a SMS, žltý dáta. V prstenci je len číslo a jednotka, popis „Zostáva z…“ je pod ním — tak sa údaje neprekrývajú a čítajú sa na jeden pohľad.',
-    list:['Zvýraznenie karty Celková aktuálna spotreba','Väčšie prstence: v strede číslo a jednotka, popis pod prstencom','Popiska: "Vidíš, koľko ti zostáva"','Tlačidlo pulzuje žlto'],
+  { t:'00:04.9 – 00:07.5', title:'Spotreba — koľko ti zostáva', dur:1800,
+    desc:'Dva prstence dobehnú na aktuálny stav: fialový minúty a SMS, žltý dáta. V prstenci je len číslo a jednotka, popis „Zostáva z…“ je pod ním. Pod prstencami zostáva karta paušálu SLOBODA 200 s platnosťou — bez zvýraznenia, len ako súčasť obrazovky.',
+    list:['Zvýraznenie karty Celková aktuálna spotreba','Väčšie prstence: v strede číslo a jednotka, popis pod prstencom','Pod nimi veľká karta SLOBODA 200 s platnosťou','Popiska: "Vidíš, koľko ti zostáva"','Tlačidlo pulzuje žlto'],
     apply(){ base('dimmed show-bars'); title1(); hl('a-usage'); showNote('a-usage','Vidíš, koľko ti zostáva','below'); btnPulse('y'); } },
 
-  { t:'00:06.6 – 00:08.6', title:'Paušál — čo v ňom máš', dur:2000,
-    desc:'Karta služby ukáže paušál, dokedy platí a čo z neho ešte zostáva — dáta aj minúty, s presnými číslami.',
-    list:['Zvýraznenie karty SLOBODA 200','Platnosť do 14. 9. 2026 a oba ukazovatele','Popiska: "Vieš, čo máš v paušále"','Tlačidlo sa prefarbí na bielu'],
-    apply(){ base('dimmed show-bars'); title1(); hl('a-svc'); showNote('a-svc','Vieš, čo máš v paušále','above'); btnPulse('w'); } },
-
-  { t:'00:08.6 – 00:09.4', title:'Potiahnutie na druhú obrazovku', dur:800,
+  { t:'00:07.5 – 00:08.3', title:'Potiahnutie na druhú obrazovku', dur:800,
     desc:'Aby sme jednu obrazovku nepreťažili, akcie sú vedľa. Prst potiahne doľava a appka sa prepne na Moje služby.',
     list:['Gesto potiahnutia doľava','Obrazovky sa posunú, hlavička ostáva','Nadpis sa mení na Moje služby','Bez popisky'],
     apply(){ base('swiping pane2'); title2(); btnPulse(''); } },
 
-  { t:'00:09.4 – 00:11.4', title:'Dobiť kredit', dur:2000,
+  { t:'00:08.3 – 00:10.4', title:'Dobiť kredit', dur:2100,
     desc:'Prvá akcia na druhej obrazovke. Kredit dobiješ kartou alebo prevodom priamo v appke, bez pobočky a bez čakania.',
     list:['Zvýraznenie riadku Dobiť kredit','Popiska: "Dobi kredit jedným ťukom"','Nad akciami zostatok kreditu 4,50 €','Tlačidlo pulzuje tyrkysovo'],
     apply(){ base('dimmed pane2'); title2(); hl('a-topup'); showNote('a-topup','Dobi kredit jedným ťukom','below'); btnPulse('t'); } },
 
-  { t:'00:11.4 – 00:13.4', title:'Nákup paušálov', dur:2000,
+  { t:'00:10.4 – 00:12.5', title:'Nákup paušálov', dur:2100,
     desc:'Druhá akcia — nákup paušálov a balíkov. Dáta, minúty aj balíky do EÚ sa dajú dokúpiť na pár ťuknutí.',
     list:['Zvýraznenie riadku Nákup paušálov','Popiska: "Kúp produkt na 1 klik"','Tlačidlo pulzuje tmavou tyrkysovou'],
     apply(){ base('dimmed pane2'); title2(); hl('a-plans'); showNote('a-plans','Kúp produkt na 1 klik','below'); btnPulse('td'); } },
 
-  { t:'00:13.4 – 00:15.6', title:'SMART platba', dur:2200,
+  { t:'00:12.5 – 00:14.7', title:'SMART platba', dur:2200,
     desc:'Tretia akcia a zároveň najsilnejší argument: SMART platba dobije kredit automaticky, keď začne dochádzať. Používateľ sa o nič nestará.',
     list:['Zvýraznenie riadku SMART platba','Popiska: "Zaplatí sa samo, načas"','Podtitul v riadku: automatické dobitie, keď dochádza','Tlačidlo sa prefarbí na bielu'],
     apply(){ base('dimmed pane2'); title2(); hl('a-smart'); showNote('a-smart','Zaplatí sa samo, načas','above'); btnPulse('w'); } },
 
-  { t:'00:15.6 – 00:18.0', title:'Výzva na stiahnutie', dur:2400,
+  { t:'00:14.7 – 00:17.0', title:'Výzva na stiahnutie', dur:2400,
     desc:'Záver: logo ide hore, pod nadpisom sa objavia dva QR kódy — vľavo App Store, vpravo Google Play. Kódy vedú priamo do obchodov, takže appku si divák stiahne bez hľadania. Claim aj tlačidlo zostávajú na mieste.',
     list:['Logo 4ka hore, headline Stiahni si Moja 4ka','Vľavo QR na App Store, vpravo QR na Google Play','Kódy sú funkčné a vedú priamo do obchodov','Claim Všetko na jednom mieste nad tlačidlom','Tlačidlo sa vracia k žltej'],
     apply(){ base('s-cta'); hideNote(); btnPulse(''); } }
