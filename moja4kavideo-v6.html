@@ -524,7 +524,7 @@ const steps = [
   { t:'00:02.2 – 00:04.4', title:'Správa čísel — rozbalený zoznam', dur:2000,
     desc:'Číslo je samostatný blok cez celú šírku so šípkou vpravo. Prst naň ťukne, zoznam sa rozbalí zhora nadol a riadky nabehnú po sebe. Nič sa pritom neposúva, obsah pod ním len stmavne.',
     list:['Zvýraznenie čísla 0949 307 152','Ťuknutie na číslo, potom sa zoznam rozbalí zhora nadol','Riadky nabiehajú po sebe, nie naraz','Obsah pod ním sa neposúva, len stmavne','Popiska: "Spravuj čísla na jednom mieste"','Tlačidlo pulzuje fialovo'],
-    apply(){ base('dimmed'); title1(); hl('a-num'); btnPulse('pu');
+    apply(){ base('dimmed'); hideNoteNow(); title1(); hl('a-num'); btnPulse('pu');
       late(180, ()=> tapOn('a-num'));
       late(430, ()=>{ stage.classList.add('numopen'); hl('a-numlist'); });
       late(900, ()=> showNote('a-numlist','Spravuj čísla na jednom mieste','below')); } },
@@ -614,6 +614,14 @@ function showNote(id, title, placement){
   note.style.setProperty('--ax', Math.max(14, Math.min(cx - left, nw - 14))+'px');
 }
 function hideNote(){ note.classList.remove('on'); }
+/* okamžité skrytie bez dobehu — keď záber svoju popisku ukazuje až neskôr,
+   nesmie na ňom ostať visieť tá z predchádzajúceho záberu */
+function hideNoteNow(){
+  note.style.transition = 'none';
+  note.classList.remove('on');
+  void note.offsetWidth;
+  note.style.transition = '';
+}
 
 /* prehrávač */
 let i = 0, playing = false, elapsed = 0, raf = null;
