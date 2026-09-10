@@ -238,9 +238,11 @@ body{
 
 /* ---------- CTA ---------- */
 .cta{position:absolute;inset:0;z-index:20;
-  display:flex;flex-direction:column;align-items:center;justify-content:flex-start;gap:12px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;
   background:linear-gradient(168deg,#0E7F82 0%,#0B4A4E 60%,#07292B 100%);
-  opacity:0;pointer-events:none;transition:opacity .55s;padding:44px 22px 116px;text-align:center}
+  opacity:0;pointer-events:none;transition:opacity .55s;
+  /* spodných 100 px patrí claimu a tlačidlu — obsah centrujeme nad nimi */
+  padding:26px 22px 122px;text-align:center}
 .stage.s-cta .cta{opacity:1}
 .logoimg{width:74px;height:74px;transform:scale(.7);
   transition:transform .6s cubic-bezier(.34,1.56,.64,1);
