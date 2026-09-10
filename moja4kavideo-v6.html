@@ -491,7 +491,7 @@ button.ghost{background:#dfe7e7;color:#123}
   <div class="card">
     <h2>Parametre</h2>
     <div class="kv"><b>Formát</b><span>360 × 720 px, rozhranie vypĺňa celý záber</span></div>
-    <div class="kv"><b>Dĺžka</b><span>17,1 sekundy, desať záberov — tempo o 10 % rýchlejšie</span></div>
+    <div class="kv"><b>Dĺžka</b><span>17,5 sekundy, desať záberov</span></div>
     <div class="kv"><b>Jazyk</b><span>všetko po slovensky</span></div>
     <div class="kv"><b>Záver</b><span>dva QR kódy ako SVG (ostré v každej veľkosti), overené dekodérom</span></div>
     <div class="kv"><b>Obrazovka 1</b><span>Štvorec, blok s číslom, prstence spotreby, karta paušálu</span></div>
@@ -521,7 +521,7 @@ const steps = [
     list:['Zvýraznenie pásu Spýtaj sa Štvorca','Popiska nad prvkom: "Štvorec vždy pomôže"','Tlačidlo pulzuje tyrkysovo'],
     apply(){ base('dimmed'); title1(); hl('a-stvorec'); showNote('a-stvorec','Štvorec vždy pomôže','below'); btnPulse('t'); } },
 
-  { t:'00:02.2 – 00:04.4', title:'Správa čísel — rozbalený zoznam', dur:2000,
+  { t:'00:02.2 – 00:04.8', title:'Správa čísel — rozbalený zoznam', dur:2600,
     desc:'Číslo je samostatný blok cez celú šírku so šípkou vpravo. Prst naň ťukne, zoznam sa rozbalí zhora nadol a riadky nabehnú po sebe. Nič sa pritom neposúva, obsah pod ním len stmavne.',
     list:['Zvýraznenie čísla 0949 307 152','Ťuknutie na číslo, potom sa zoznam rozbalí zhora nadol','Riadky nabiehajú po sebe, nie naraz','Obsah pod ním sa neposúva, len stmavne','Popiska: "Spravuj čísla na jednom mieste"','Tlačidlo pulzuje fialovo'],
     apply(){ base('dimmed'); hideNoteNow(); title1(); hl('a-num'); btnPulse('pu');
@@ -529,37 +529,37 @@ const steps = [
       late(430, ()=>{ stage.classList.add('numopen'); hl('a-numlist'); });
       late(900, ()=> showNote('a-numlist','Spravuj čísla na jednom mieste','below')); } },
 
-  { t:'00:04.4 – 00:06.7', title:'Spotreba — koľko ti zostáva', dur:2300,
+  { t:'00:04.8 – 00:07.1', title:'Spotreba — koľko ti zostáva', dur:2300,
     desc:'Dva prstence dobehnú na aktuálny stav: fialový minúty a SMS, žltý dáta. V prstenci je len číslo a jednotka, popis „Zostáva z…“ je pod ním. Pod prstencami zostáva karta paušálu SLOBODA 200 s platnosťou — bez zvýraznenia, len ako súčasť obrazovky.',
     list:['Zvýraznenie karty Celková aktuálna spotreba','Väčšie prstence: v strede číslo a jednotka, popis pod prstencom','Pod nimi veľká karta SLOBODA 200 s platnosťou','Popiska: "Vidíš, koľko ti zostáva"','Tlačidlo pulzuje žlto'],
     apply(){ base('dimmed show-bars'); title1(); hl('a-usage'); showNote('a-usage','Vidíš, koľko ti zostáva','below'); btnPulse('y'); } },
 
-  { t:'00:06.7 – 00:08.5', title:'Paušál — kedy sa obnoví', dur:1800,
+  { t:'00:07.1 – 00:08.9', title:'Paušál — kedy sa obnoví', dur:1800,
     desc:'Karta Môj paušál sa zvýrazní a ukáže, dokedy paušál platí. Používateľ tak nikdy nezmešká dátum obnovy — appka ho má stále na očiach, netreba nič hľadať vo faktúrach.',
     list:['Zvýraznenie karty SLOBODA 200','Platnosť do 14. 9. 2026 priamo na karte','Popiska: "Sleduj dátum obnovy paušálu"','Tlačidlo sa prefarbí na bielu'],
     apply(){ base('dimmed show-bars'); title1(); hl('a-svc'); showNote('a-svc','Sleduj dátum obnovy paušálu','above'); btnPulse('w'); } },
 
-  { t:'00:08.5 – 00:09.2', title:'Potiahnutie na druhú obrazovku', dur:700,
+  { t:'00:08.9 – 00:09.6', title:'Potiahnutie na druhú obrazovku', dur:700,
     desc:'Aby sme jednu obrazovku nepreťažili, akcie sú vedľa. Prst potiahne doľava a appka sa prepne na Moje služby.',
     list:['Gesto potiahnutia doľava','Obrazovky sa posunú, hlavička ostáva','Nadpis sa mení na Moje služby','Bez popisky'],
     apply(){ base('swiping pane2'); title2(); btnPulse(''); } },
 
-  { t:'00:09.2 – 00:11.1', title:'Dobiť kredit', dur:1900,
+  { t:'00:09.6 – 00:11.5', title:'Dobiť kredit', dur:1900,
     desc:'Prvá akcia na druhej obrazovke. Kredit dobiješ kartou alebo prevodom priamo v appke, bez pobočky a bez čakania.',
     list:['Zvýraznenie riadku Dobiť kredit','Popiska: "Dobi kredit jedným ťukom"','Nad akciami zostatok kreditu 4,50 €','Tlačidlo pulzuje tyrkysovo'],
     apply(){ base('dimmed pane2'); title2(); hl('a-topup'); showNote('a-topup','Dobi kredit jedným ťukom','below'); btnPulse('t'); } },
 
-  { t:'00:11.1 – 00:13.0', title:'Nákup paušálov', dur:1900,
+  { t:'00:11.5 – 00:13.4', title:'Nákup paušálov', dur:1900,
     desc:'Druhá akcia — nákup paušálov a balíkov. Dáta, minúty aj balíky do EÚ sa dajú dokúpiť na pár ťuknutí.',
     list:['Zvýraznenie riadku Nákup paušálov','Popiska: "Kúp produkt na 1 klik"','Tlačidlo pulzuje tmavou tyrkysovou'],
     apply(){ base('dimmed pane2'); title2(); hl('a-plans'); showNote('a-plans','Kúp produkt na 1 klik','below'); btnPulse('td'); } },
 
-  { t:'00:13.0 – 00:15.0', title:'SMART platba', dur:2200,
+  { t:'00:13.4 – 00:15.4', title:'SMART platba', dur:2000,
     desc:'Tretia akcia a zároveň najsilnejší argument: SMART platba dobije kredit automaticky, keď začne dochádzať. Používateľ sa o nič nestará.',
     list:['Zvýraznenie riadku SMART platba','Popiska: "Zaplatí sa samo, načas"','Podtitul v riadku: automatické dobitie, keď dochádza','Tlačidlo sa prefarbí na bielu'],
     apply(){ base('dimmed pane2'); title2(); hl('a-smart'); showNote('a-smart','Zaplatí sa samo, načas','above'); btnPulse('w'); } },
 
-  { t:'00:15.0 – 00:17.1', title:'Výzva na stiahnutie', dur:2100,
+  { t:'00:15.4 – 00:17.5', title:'Výzva na stiahnutie', dur:2100,
     desc:'Záver: logo ide hore, pod nadpisom sa objavia dva QR kódy — vľavo App Store, vpravo Google Play. Kódy vedú priamo do obchodov, takže appku si divák stiahne bez hľadania. Claim aj tlačidlo zostávajú na mieste.',
     list:['Logo 4ka hore, headline Stiahni si Moja 4ka','Vľavo QR na App Store, vpravo QR na Google Play','Kódy sú funkčné a vedú priamo do obchodov','Claim Všetko na jednom mieste nad tlačidlom','Tlačidlo sa vracia k žltej'],
     apply(){ base('s-cta'); hideNote(); btnPulse(''); } }
