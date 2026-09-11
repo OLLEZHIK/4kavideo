@@ -14,7 +14,7 @@ body{font-family:Nunito,"Trebuchet MS",system-ui,sans-serif;background:var(--pap
 .stage{position:relative;width:360px;height:780px;overflow:hidden;background:#fff}
 .shot{position:absolute;left:0;top:0;width:100%;opacity:0;
   transition:opacity .45s ease, transform 1.15s cubic-bezier(.42,0,.22,1)}
-.shot.slow{transition:opacity .45s ease, transform 1.6s cubic-bezier(.45,0,.18,1)}
+.shot.slow{transition:opacity .45s ease, transform 2s cubic-bezier(.4,0,.15,1)}
 .shot.on{opacity:1}
 /* písanie do polí formulára */
 .fld{position:absolute;z-index:14;font-size:13.5px;font-weight:600;color:#242424;
@@ -30,13 +30,14 @@ body{font-family:Nunito,"Trebuchet MS",system-ui,sans-serif;background:var(--pap
              width .5s cubic-bezier(.3,.8,.3,1), height .5s cubic-bezier(.3,.8,.3,1)}
 .spot.on{opacity:1}
 /* popiska v bielom štýle */
-.note{position:absolute;z-index:20;width:206px;padding:11px 14px 13px;border-radius:14px;
+.note{position:absolute;z-index:20;width:max-content;max-width:252px;padding:11px 15px 13px;border-radius:14px;
   background:#fff;border:2px solid var(--t);box-shadow:0 14px 34px rgba(10,45,52,.35);
   opacity:0;transform:translateY(10px) scale(.95);pointer-events:none;
   transition:opacity .34s ease, transform .4s cubic-bezier(.34,1.5,.64,1),
              left .5s cubic-bezier(.3,.8,.3,1), top .5s cubic-bezier(.3,.8,.3,1)}
 .note.on{opacity:1;transform:none}
-.note b{display:block;font-size:15.5px;font-weight:800;line-height:1.2;letter-spacing:-.3px;color:var(--ink);text-wrap:balance}
+.note b{display:block;font-size:15.5px;font-weight:800;line-height:1.22;letter-spacing:-.3px;
+  color:var(--ink);text-wrap:balance;hyphens:none}
 .note::after{content:"";position:absolute;left:var(--ax,50%);width:12px;height:12px;background:#fff;
   transform:translateX(-50%) rotate(45deg)}
 .note.p-above::after{bottom:-7px;border-right:2px solid var(--t);border-bottom:2px solid var(--t)}
@@ -142,18 +143,18 @@ button.ghost{background:#dde6e7;color:#15272B}
     <h2>Parametre</h2>
     <div class="kv"><b>Podklad</b><span>skutočné snímky z appky, 1080 px na šírku</span></div>
     <div class="kv"><b>Formát</b><span>360 × 780 px — presne pomer obrazovky telefónu</span></div>
-    <div class="kv"><b>Dĺžka</b><span>33.9 s, jedenásť krokov</span></div>
+    <div class="kv"><b>Dĺžka</b><span>35.3 s, jedenásť krokov</span></div>
     <div class="kv"><b>Štýl</b><span>svetlý, reflektor stmaví okolie zvýrazneného prvku</span></div>
     <div class="kv"><b>Úpravy</b><span>Štvorec namiesto Huga, vymyslené čísla, prekreslené tmavé obrazovky</span></div>
   </div>
 </div>
 <script>
-const STEPS=[{"im": 0, "dy": 0, "box": [106.0, 312.0, 147.9, 46.3], "cap": "Pridaj svoje 4ka číslo", "pl": "above", "dur": 2400, "tap": true}, {"im": 1, "dy": 0, "box": [114.4, 414.7, 131.2, 43.0], "cap": "Zadaj číslo a pomenuj ho", "pl": "above", "dur": 3800, "tap": false, "type": 1}, {"im": 2, "dy": 0, "box": [83.7, 205.1, 192.6, 62.8], "cap": "Ťukni na svoje číslo", "pl": "below", "dur": 4400, "tap": true, "then": {"at": 1800, "im": 3, "dy": -273, "box": [83.7, 283.7, 195.3, 185.6], "pl": "above", "cap": "Spravuj čísla na jednom mieste"}}, {"im": 4, "dy": -234, "box": [108.8, 417.6, 142.3, 33.5], "cap": "Posuň sa nižšie a vyber si paušál", "pl": "above", "dur": 3200, "tap": true, "tapAt": 1900, "dy0": 0}, {"im": 5, "dy": 0, "box": [12.3, 156.3, 335.4, 200.9], "cap": "Vyber službu na pár ťuknutí", "pl": "below", "dur": 2600, "tap": false}, {"im": 6, "dy": 0, "box": [11.2, 218.2, 337.7, 152.9], "cap": "Paušál máš aktívny", "pl": "below", "dur": 2400, "tap": false}, {"im": 7, "dy": -47, "box": [11.2, 294.9, 337.7, 189.8], "cap": "Vidíš, koľko ti zostáva", "pl": "above", "dur": 4000, "tap": false, "slow": 1, "dy0": -266}, {"im": 8, "dy": -275, "box": [55.8, 376.6, 106.0, 26.5], "cap": "SMART platba — platí sa sama a lacnejšie", "pl": "above", "dur": 3800, "tap": true, "tapAt": 2500, "slow": 1, "dy0": 0}, {"im": 9, "dy": 0, "box": [103.3, 355.8, 153.5, 30.7], "cap": "Plať kartou, bez starostí", "pl": "below", "dur": 2400, "tap": true}, {"im": 2, "dy": 0, "box": [8.4, 83.7, 245.6, 57.2], "cap": "Niečo sa nepodarilo? Štvorec vždy pomôže", "pl": "below", "dur": 2600, "tap": false}];
+const STEPS=[{"im": 0, "dy": 0, "box": [106.0, 312.0, 147.9, 46.3], "cap": "Pridaj svoje 4ka číslo", "pl": "above", "dur": 2400, "tap": true}, {"im": 1, "dy": 0, "box": [114.4, 414.7, 131.2, 43.0], "cap": "Zadaj číslo a pomenuj ho", "pl": "above", "dur": 3800, "tap": false, "type": 1}, {"im": 2, "dy": 0, "box": [11.2, 199.5, 337.7, 75.3], "cap": "Spravuj svoje čísla", "pl": "below", "dur": 4400, "tap": true, "then": {"at": 1800, "im": 3, "dy": -273, "box": [83.7, 283.7, 195.3, 185.6], "pl": "above", "cap": "Všetky čísla na jednom mieste"}}, {"im": 4, "dy": -234, "box": [108.8, 417.6, 142.3, 33.5], "cap": "Aktivuj si paušál", "pl": "above", "dur": 3200, "tap": true, "tapAt": 1900, "dy0": 0}, {"im": 5, "dy": 0, "box": [12.3, 156.3, 335.4, 200.9], "cap": "Vyber si ten, ktorý ti sedí", "pl": "below", "dur": 2600, "tap": false}, {"im": 6, "dy": 0, "box": [11.2, 218.2, 337.7, 152.9], "cap": "Paušál máš aktívny", "pl": "below", "dur": 2400, "tap": false}, {"im": 7, "dy": -47, "box": [11.2, 294.9, 337.7, 189.8], "cap": "Vidíš, koľko ti zostáva", "pl": "above", "dur": 4600, "tap": false, "slow": 1, "dy0": -266}, {"im": 8, "dy": -275, "box": [11.2, 319.4, 337.7, 87.9], "cap": "SMART platba — platí sa sama", "pl": "above", "dur": 4600, "tap": false, "slow": 1, "dy0": 0, "then": {"at": 3200, "im": 8, "dy": -275, "box": [55.8, 376.6, 106.0, 26.5], "pl": "above", "cap": "SMART platba — platí sa sama"}}, {"im": 9, "dy": 0, "box": [103.3, 355.8, 153.5, 30.7], "cap": "Plať kartou, menej starostí", "pl": "below", "dur": 2400, "tap": true}, {"im": 2, "dy": 0, "box": [8.4, 83.7, 245.6, 57.2], "cap": "Niečo sa nepodarilo? Štvorec vždy pomôže", "pl": "below", "dur": 2600, "tap": false}];
 const stage=document.getElementById('stage'), spot=document.getElementById('spot'),
       note=document.getElementById('note'), noteTxt=document.getElementById('noteTxt'),
       tap=document.getElementById('tap');
 const shots=[...document.querySelectorAll('.shot')];
-const CODES=["00:00.0 – 00:02.4", "00:02.4 – 00:06.2", "00:06.2 – 00:10.6", "00:10.6 – 00:13.8", "00:13.8 – 00:16.4", "00:16.4 – 00:18.8", "00:18.8 – 00:22.8", "00:22.8 – 00:26.6", "00:26.6 – 00:29.0", "00:29.0 – 00:31.6", "00:31.6 – 00:33.9"];
+const CODES=["00:00.0 – 00:02.4", "00:02.4 – 00:06.2", "00:06.2 – 00:10.6", "00:10.6 – 00:13.8", "00:13.8 – 00:16.4", "00:16.4 – 00:18.8", "00:18.8 – 00:23.4", "00:23.4 – 00:28.0", "00:28.0 – 00:30.4", "00:30.4 – 00:33.0", "00:33.0 – 00:35.3"];
 const TITLES=[["Pridanie čísla", "Prázdna obrazovka Správa Mojich služieb s jediným tlačidlom — Pridať tel. číslo."], ["Formulár", "Zadá sa telefónne číslo a meno účtu, pridanie potvrdí SMS kód."], ["Štvorec", "Asistent sedí v hlavičke na každej obrazovke a odpovie na čokoľvek."], ["Správa čísel", "Rozbalený zoznam všetkých čísel na konte — prepnutie jedným ťuknutím."], ["Paušál nie je aktívny", "Karta Paušál ukazuje BEZ SLUŽBY a ponúka Vybrať a aktivovať."], ["Výber služby", "Zoznam paušálov bez zbytočného textu — len názvy a výber."], ["Paušál aktívny", "SLOBODA 200 so zeleným štítkom Aktívne."], ["Spotreba", "Prstence ukazujú zostatok minút, SMS a dát."], ["Nastavenia", "Zo spodku karty sa ide do nastavení čísla."], ["Platobná karta", "V Peňaženke sa pridá platobná karta."], ["Výzva na stiahnutie", "Logo, dva QR kódy a tlačidlo do obchodu."]];
 let lateIds=[];
 function clearLate(){lateIds.forEach(clearTimeout);lateIds=[]}
@@ -201,11 +202,12 @@ function show(n){
   void sh.offsetWidth;
   sh.style.transition='';
   noteTxt.textContent=s.cap;
-  if(s.dy0!==undefined){ spot.classList.remove('on'); note.classList.remove('on');
-    late(s.slow?2300:1650, ()=>place(note, s.box, s.pl)); }
+  if(s.dy0!==undefined){ spot.classList.remove('on');
+    place(note, s.box, s.pl); spot.classList.remove('on');
+    late(s.slow?2800:1650, ()=>spot.classList.add('on')); }
   else place(note, s.box, s.pl);
   shots[s.im].classList.toggle('slow', !!s.slow);
-  if(s.dy0!==undefined) late(s.slow?620:420,()=>{ shots[s.im].style.transform='translateY('+s.dy+'px)'; });
+  if(s.dy0!==undefined) late(s.slow?700:420,()=>{ shots[s.im].style.transform='translateY('+s.dy+'px)'; });
   if(s.tap) late(s.tapAt||420,()=>ripple(s.box));
   if(s.type){
     note.classList.remove('on');
