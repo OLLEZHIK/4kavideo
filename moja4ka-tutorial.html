@@ -34,14 +34,14 @@ body{font-family:Nunito,"Trebuchet MS",system-ui,sans-serif;background:var(--pap
 .spot.on{opacity:1}
 .spot.alt{box-shadow:0 0 0 9999px rgba(8,40,47,.66),0 0 0 3px #F5C518,0 0 26px rgba(245,197,24,.55)}
 /* popiska v bielom štýle */
-.note{position:absolute;z-index:20;width:max-content;max-width:214px;padding:11px 15px 13px;border-radius:14px;
+.note{position:absolute;z-index:20;width:max-content;padding:11px 15px 13px;border-radius:14px;
   background:#fff;border:2px solid var(--t);box-shadow:0 14px 34px rgba(10,45,52,.35);
   opacity:0;transform:translateY(10px) scale(.95);pointer-events:none;
   transition:opacity .34s ease, transform .4s cubic-bezier(.34,1.5,.64,1),
              left .5s cubic-bezier(.3,.8,.3,1), top .5s cubic-bezier(.3,.8,.3,1)}
 .note.on{opacity:1;transform:none}
 .note b{display:block;font-size:15.5px;font-weight:800;line-height:1.22;letter-spacing:-.3px;
-  color:var(--ink);text-wrap:balance;hyphens:none}
+  color:var(--ink);white-space:pre-line;hyphens:none}
 .note::after{content:"";position:absolute;left:var(--ax,50%);width:12px;height:12px;background:#fff;
   transform:translateX(-50%) rotate(45deg)}
 .note.p-above::after{bottom:-7px;border-right:2px solid var(--t);border-bottom:2px solid var(--t)}
@@ -161,7 +161,7 @@ button.ghost{background:#dde6e7;color:#15272B}
   </div>
 </div>
 <script>
-const STEPS=[{"im": 0, "dy": 0, "box": [106.0, 312.0, 147.9, 46.3], "cap": "Pridaj svoje 4ka číslo", "pl": "above", "dur": 2400, "tap": true}, {"im": 1, "dy": 0, "box": [114.4, 414.7, 131.2, 43.0], "cap": "Zadaj číslo a pomenuj ho", "pl": "above", "dur": 3800, "tap": false, "type": 1}, {"im": 2, "dy": 0, "box": [11.2, 199.5, 337.7, 75.3], "cap": "Spravuj svoje čísla", "pl": "below", "dur": 4400, "tap": true, "then": {"at": 1800, "im": 3, "dy": -273, "box": [11.2, 281.8, 337.1, 187.5], "pl": "above", "cap": "Všetky čísla na jednom mieste", "tap": 0}}, {"im": 4, "dy": -234, "box": [108.8, 417.6, 142.3, 33.5], "cap": "Aktivuj si paušál", "pl": "above", "dur": 3800, "tap": true, "tapAt": 2700, "dy0": 0}, {"im": 5, "dy": 0, "box": [12.3, 156.3, 335.4, 200.9], "cap": "Vyber si ten, ktorý ti sedí", "pl": "below", "dur": 2600, "tap": false}, {"im": 6, "dy": 0, "box": [11.2, 218.2, 337.7, 152.9], "cap": "Paušál máš aktívny", "pl": "below", "dur": 2400, "tap": false}, {"im": 7, "dy": -47, "box": [11.2, 294.9, 337.7, 189.8], "cap": "Vidíš, koľko ti zostáva", "pl": "above", "dur": 4800, "tap": false, "dy0": -294}, {"im": 7, "dy": -870, "box": [11.2, 346.5, 337.7, 87.9], "cap": "Chceš platiť menej?", "pl": "above", "dur": 6000, "tap": false, "hue": 1, "dy0": -47, "then": {"at": 4200, "im": 7, "dy": -870, "box": [50.2, 409.8, 122.8, 15.1], "pl": "above", "cap": "Nastavenia SMART platby", "tap": 1}}, {"im": 8, "dy": 0, "box": [103.3, 355.8, 153.5, 30.7], "cap": "Platí automaticky a lacnejšie", "pl": "below", "dur": 2400, "tap": true}, {"im": 2, "dy": 0, "box": [8.4, 83.7, 245.6, 57.2], "cap": "Niečo sa nepodarilo? Štvorec vždy pomôže", "pl": "below", "dur": 2600, "tap": false}];
+const STEPS=[{"im": 0, "dy": 0, "box": [106.0, 312.0, 147.9, 46.3], "cap": "Pridaj svoje 4ka číslo", "pl": "above", "dur": 2400, "tap": true}, {"im": 1, "dy": 0, "box": [114.4, 414.7, 131.2, 43.0], "cap": "Zadaj číslo\na pomenuj ho", "pl": "above", "dur": 3800, "tap": false, "type": 1}, {"im": 2, "dy": 0, "box": [11.2, 199.5, 337.7, 75.3], "cap": "Spravuj svoje čísla", "pl": "below", "dur": 4400, "tap": true, "then": {"at": 1800, "im": 3, "dy": -273, "box": [11.2, 281.8, 337.1, 187.5], "pl": "above", "cap": "Všetky čísla\nna jednom mieste", "tap": 0}}, {"im": 4, "dy": -234, "box": [108.8, 417.6, 142.3, 33.5], "cap": "Aktivuj si paušál", "pl": "above", "dur": 3800, "tap": true, "tapAt": 2700, "dy0": 0}, {"im": 5, "dy": 0, "box": [12.3, 156.3, 335.4, 200.9], "cap": "Vyber si ten,\nktorý ti sedí", "pl": "below", "dur": 2600, "tap": false}, {"im": 6, "dy": 0, "box": [11.2, 218.2, 337.7, 152.9], "cap": "Paušál máš aktívny", "pl": "below", "dur": 2400, "tap": false}, {"im": 7, "dy": -47, "box": [11.2, 294.9, 337.7, 189.8], "cap": "Vidíš, koľko\nti zostáva", "pl": "above", "dur": 4800, "tap": false, "dy0": -294}, {"im": 7, "dy": -870, "box": [11.2, 346.5, 337.7, 87.9], "cap": "Chceš platiť menej?", "pl": "above", "dur": 6000, "tap": false, "hue": 1, "dy0": -47, "then": {"at": 4200, "im": 7, "dy": -870, "box": [50.2, 409.8, 122.8, 15.1], "pl": "above", "cap": "Nastavenia\nSMART platby", "tap": 1}}, {"im": 8, "dy": 0, "box": [103.3, 355.8, 153.5, 30.7], "cap": "Platí automaticky\na lacnejšie", "pl": "below", "dur": 2400, "tap": true}, {"im": 2, "dy": 0, "box": [8.4, 83.7, 245.6, 57.2], "cap": "Niečo sa nepodarilo?\nŠtvorec vždy pomôže", "pl": "below", "dur": 2600, "tap": false}];
 const stage=document.getElementById('stage'), spot=document.getElementById('spot'),
       note=document.getElementById('note'), noteTxt=document.getElementById('noteTxt'),
       tap=document.getElementById('tap');
@@ -172,18 +172,8 @@ let lateIds=[];
 function clearLate(){lateIds.forEach(clearTimeout);lateIds=[]}
 function late(ms,fn){lateIds.push(setTimeout(fn,ms))}
 const f1=document.getElementById('f1'), f2=document.getElementById('f2'), dlb=document.getElementById('dl');
-function fitNote(){
-  note.style.width='';                       // späť na max-content / max-width
-  const r=document.createRange(); r.selectNodeContents(noteTxt);
-  const rects=[...r.getClientRects()];
-  if(rects.length){
-    const w=Math.max(...rects.map(x=>x.width));
-    note.style.width=Math.ceil(w)+34+'px';   // + vnútorné odsadenie a rámik
-  }
-}
 function place(el, b, pl, alt){
   spot.classList.toggle('alt', !!alt);
-  fitNote();
   const [x,y,w,h]=b;
   spot.style.left=x+'px'; spot.style.top=y+'px'; spot.style.width=w+'px'; spot.style.height=h+'px';
   spot.classList.add('on');
